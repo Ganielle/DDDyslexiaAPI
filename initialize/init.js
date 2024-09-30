@@ -13,7 +13,7 @@ exports.initserver = async () => {
     })
 
     if (admin.length <= 0){
-        await Staffusers.create({username: "whizkidadmin", password: "2b6aBdUo1SY7", token: ""})
+        await Staffusers.create({username: "dddyslexiaadmin", password: "2b6aBdUo1SY7", token: ""})
         .catch(err => {
             console.log(`There's a problem saving the admin datas. Error ${err}`)
     

@@ -1,5 +1,6 @@
-const Users = require("../models/Users")
+const Studentusers = require("../models/Studentusers")
 const Staffusers = require("../models/Staffusers")
+const Parentusers = require("../models/Parentusers")
 const fs = require('fs');
 const path = require("path");
 const publicKey = fs.readFileSync(path.resolve(__dirname, "../keys/public-key.pem"), 'utf-8');
@@ -34,7 +35,7 @@ exports.protectplayer = async (req, res, next) => {
             return res.status(401).json({ message: 'Unauthorized', data: "You don't have enough access to view this page." });
         }
 
-        const user = await Users.findOne({username: decodedToken.username})
+        const user = await Studentusers.findOne({username: decodedToken.username})
         .then(data => data)
 
         if (!user){
@@ -73,6 +74,44 @@ exports.protectadmin = async (req, res, next) => {
         }
 
         const user = await Staffusers.findOne({username: decodedToken.username})
+        .then(data => data)
+
+        if (!user){
+            return res.status(401).json({ message: 'Unauthorized', data: "You don't have enough access to view this page." });
+        }
+
+        if (decodedToken.token != user.token){
+            return res.status(401).json({ message: 'duallogin', data: `Your account had been opened on another device! You will now be logged out.` });
+        }
+
+        req.user = decodedToken;
+        next();
+    }
+    catch(ex){
+        return res.status(401).json({ message: 'Unauthorized', data: "You don't have enough access to view this page." });
+    }
+}
+
+exports.protectguardian = async (req, res, next) => {
+    const token = req.headers.authorization
+
+    if (!token){
+        return res.status(401).json({ message: 'Unauthorized', data: "You don't have enough access to view this page." });
+    }
+
+    try{
+        if (!token.startsWith("Bearer")){
+            return res.status(401).json({ message: 'Unauthorized', data: "You don't have enough access to view this page." });
+        }
+        const headerpart = token.split(' ')[1]
+
+        const decodedToken = await verifyJWT(headerpart);
+
+        if (decodedToken.auth != "parent"){
+            return res.status(401).json({ message: 'Unauthorized', data: "You don't have enough access to view this page." });
+        }
+
+        const user = await Parentusers.findOne({username: decodedToken.username})
         .then(data => data)
 
         if (!user){
