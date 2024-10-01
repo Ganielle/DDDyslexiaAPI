@@ -3,7 +3,7 @@ const routers = app => {
 
     app.use("/auth", require("./auth"))
     app.use("/parent", require("./parentuser"))
-    // app.use("/users", require("./users"))
+    app.use("/children", require("./users"))
     // app.use("/dashboard", require("./dashboard"))
     // app.use("/story", require("./storyassessment"))
     // app.use("/uploads", require('./upload'))

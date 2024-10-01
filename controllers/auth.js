@@ -93,7 +93,8 @@ exports.loginparent = async (req, res) => {
 
     return res.json({message: "success", data: {
         token: jwtoken,
-        auth: "parent"
+        auth: "parent",
+        id: parentdata._id
     }})
 }
 
