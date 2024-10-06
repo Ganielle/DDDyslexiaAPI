@@ -1,4 +1,4 @@
-const Storyassessment = require("../models/Storyassessment")
+const Readit = require("../models/Readit")
 const {GoogleAuth} = require('google-auth-library');
 
 const {computeAccuracy, analyzeProsody, getWavDuration} = require("../utils/assessmentutils")
@@ -20,7 +20,7 @@ const client = new SpeechClient();
 exports.assessment = async (req, res) => {
   const {id, username} = req.user
 
-  const {storytitle, referencestory} = req.body
+  const {number, referenceletter} = req.body
 
   let recording = ""
 
@@ -53,7 +53,7 @@ exports.assessment = async (req, res) => {
 
     const finaltranscript = transcription.replace(/[\r\n]+/g, '');
 
-    console.log(finaltranscript);
+    console.log(`transcript: ${transcription}`);
 
     const words = response.results.flatMap(result => result.alternatives[0].words);
     
@@ -73,7 +73,7 @@ exports.assessment = async (req, res) => {
     const slowestDuration = 360; // seconds
 
     // Calculate total word count for the reference story
-    const totalWordCount = referencestory.split(/\s+/).filter(word => word.length > 0).length;
+    const totalWordCount = referenceletter.split(/\s+/).filter(word => word.length > 0).length;
 
     // Calculate expected duration to read the full story at the fastest pace
     const expectedDurationAtFastestPace = (totalWordCount / (60 / fastestDuration)) * fastestDuration;
@@ -93,12 +93,10 @@ exports.assessment = async (req, res) => {
     const completionRatio = Math.min(wordCount / totalWordCount, 1); // Ensure it’s between 0 and 1
     const adjustedPercentage = readingSpeedPercentage * completionRatio;
 
-    
+    const accuracy = computeAccuracy(transcription, referenceletter);
+    const prosodyStats = analyzeProsody(path.resolve(__dirname, '..', recording), referenceletter);
 
-    const accuracy = computeAccuracy(transcription, referencestory);
-    const prosodyStats = analyzeProsody(path.resolve(__dirname, '..', recording), referencestory);
-
-    await Storyassessment.create({owner: new mongoose.Types.ObjectId(id), title: storytitle, accuracy: accuracy, speed: adjustedPercentage, prosody: (prosodyStats.averagePitchPercentage + prosodyStats.intensityPercentage + prosodyStats.tempoPercentage), pitch: prosodyStats.averagePitchPercentage, intensity: prosodyStats.intensityPercentage, tempo: prosodyStats.tempoPercentage, userstory: finaltranscript, recordfile: recording})
+    await Readit.create({owner: new mongoose.Types.ObjectId(id), number: number, accuracy: accuracy, speed: adjustedPercentage, prosody: (prosodyStats.averagePitchPercentage + prosodyStats.intensityPercentage + prosodyStats.tempoPercentage), pitch: prosodyStats.averagePitchPercentage, intensity: prosodyStats.intensityPercentage, tempo: prosodyStats.tempoPercentage, userstory: finaltranscript, recordfile: recording})
     .catch(err => {
       console.log(`There's a problem saving story assessment for ${username}. Error: ${err}`)
 

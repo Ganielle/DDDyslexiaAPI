@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const { assessment, viewlistassessments, viewstoryassessmentdata, viewassessmenthistory, deleteassessment } = require("../controllers/storyassessment")
+const { assessment, viewlistassessments, viewstoryassessmentdata, viewassessmenthistory, deleteassessment } = require("../controllers/readit")
 const {protectplayer, protectadmin} = require("../middleware/middleware")
 const recordingupload = require("../middleware/uploadrecordings")
 

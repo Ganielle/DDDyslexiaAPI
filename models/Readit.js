@@ -33,7 +33,7 @@ const readItSchema = new mongoose.Schema(
         tempo: {
             type: Number
         },
-        userstory: {
+        referenceletter: {
             type: String
         },
         recordfile: {

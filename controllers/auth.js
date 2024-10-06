@@ -52,7 +52,8 @@ exports.loginstudent = async (req, res) => {
 
     return res.json({message: "success", data: {
         token: jwtoken,
-        auth: "student"
+        auth: "student",
+        id: studentdata._id
     }})
 }
 

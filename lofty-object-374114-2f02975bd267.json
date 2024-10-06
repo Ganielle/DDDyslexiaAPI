@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "lofty-object-374114",
+  "private_key_id": "2f02975bd26738a97c1d9d9745792febdcc68f8c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDNGLKh27y494gR\nzmp5A+pfzAKoCB8B3Y8Z6/WVL7pmZFl35jqJOTnsK5lOnaGXZB7VWwDNWTuG5hm/\nQI9Qkd7Zf59idYOwyzVT91txFKBbs15BDGEDjbbsXvCwesAN+HmqIsqJMiFm58Of\nQw7z8Vv4a7PURtQ6mNJxle8Mhjhl02pTXsfYVBE0KycBGfV0Otha6i+x+jgq1Zo9\nqG8SFnsAECH1PCXyvXPDPRupq3XrN4tHe7pJHschtoGJHDkHQxYXepbuGAZrEa73\nSU1kYZVIlIePT2ury1/DJSJh53y0ka9Y8LtQyuqLuU0gZ9yL2YLHP2rLJcZAhrP1\nKkWTIPTPAgMBAAECggEAUmj5ohL2voXr3WfJHY4mt050xMralrfNf9dxqvvuFKV+\n07AlVi0x6oVMSSwKmZfH0egKpviTdC1yLAiHbZLnbhKbWwcoHrpQV8hdLE9i7eXh\nWhbcxn5Dga/WW7s+/34XePcY1c7YYA6BarWZxQh28ZdpP0MklNUCPlTGJIysDbGQ\nvANviFYIkAUagu1TTV0owAYiXJzJUgKhWFy7ohLMugx6aAMAHIzlHwjElgahrYIu\nKwsTTRvV4taXJ3dJfNm5hOmnEclx5zbaZ7czLnQkZ3QBI/sqOPFzKK7imd9p0Eyf\nSBk3K3f+01jJDJZBdrKA9XvL8q1PRWubkqMQUJPGtQKBgQDwgVA5N/7tMU6ah1P4\nlr5fShzNgUkCe8cOHGtX+8pjCiLJZPxkCLZmFgZXcSPyYccTH0UCm5ypDgEMLLyC\n8C9lU8Dv7r9PWBhrwLoakdBr7as316xnYw1PUSlkchN+aamipSsXtiaErYnW/M/q\nE/unatsI7149gDrV1eN3Mrm9qwKBgQDaT2JdiQAc6L0EUk5Mv9nJv0FE8NhZVFsp\n4UfIqT9YiXLBAssEIuDqG0MMYpyGVxQl1+SHaLBRmpgiPKm9mn6PStAarbNj4tSd\nyYq7hi/wSguoCXMZAl38b+wHgF8XS0vByBv9/0vqS446Lab8Wb16YTiga9RY+kk5\nNvdpVxCZbQKBgGyTxLcAS6ujrfvfio5Y57s3R0eTzXU8kkIRnHiNKPKLeeb4G2XB\n9S6jVNuXLYZYlDpSzKH/xLshomFvtO9cJdmV9S2c2Gumtue2i45BNBn1o23DhYbr\nVe/wEULSqXBRnY7bCFhdGIifm/IeEnN38A3GFPq0rhQP1wAA3v9KPEafAoGAFF98\nKoZygEAoA5M6w2bUCEPU734acpuwtkPT0yIYS0bocqK0F3q5yp8orqs1OERAGRgA\nt7JJYhQvRmKq5IrabLzqltLG/vdYKDF6xO1M4/vFArV/DEJwSvKW8ExGk4HvW/I0\nyotcpkzOxRclkj89s4IHKtFlS7hvxOsgQ7BgWDECgYABt67+GLd0JnUw1avB6uLQ\n2rPMi5HWM5kx1X1+M5oi5r0w7E85va+1HHYMov57h+k7KFoHZDXxN6k0kDwNhTjm\n06whQjN0CYC6PXDuVR9pzTgX2QVsnXusq4xRH/nTkKNCbG4BMtN+XbvhgjOr0jtA\nfy6fA1shiIs9vFansSZNgA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "dddyslexialocal@lofty-object-374114.iam.gserviceaccount.com",
+  "client_id": "106080678042312344280",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dddyslexialocal%40lofty-object-374114.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
