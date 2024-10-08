@@ -33,7 +33,7 @@ exports.getchildscore = async (req, res) => {
 
     let data = `${difficulty}\n\n`
 
-    writeitdata.forEach(tempdata => {
+    builditdata.forEach(tempdata => {
         const {letter, score} = tempdata
 
         data += `${letter} : ${score}\n`
