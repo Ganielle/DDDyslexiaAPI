@@ -26,6 +26,10 @@ exports.loginstudent = async (req, res) => {
         return res.status(400).json({message: "bad-request", data: "There's a problem logging in your account. Please contact customer support for more details!"})
     })
 
+    if (!studentdata){
+        return res.status(400).json({message: "failed", data: "No children account found!"})
+    }
+
     if (!(await studentdata.matchPassword(password))){
         return res.status(400).json({message: "failed", data: "Password incorrect! Please input your valid password and try again."})
     }
