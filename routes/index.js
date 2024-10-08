@@ -5,6 +5,8 @@ const routers = app => {
     app.use("/parent", require("./parentuser"))
     app.use("/children", require("./users"))
     app.use("/readit", require("./readit"))
+    app.use("/writeit", require("./writeit"))
+    app.use("/buildit", require("./buildit"))
     // app.use("/dashboard", require("./dashboard"))
     // app.use("/uploads", require('./upload'))
 }

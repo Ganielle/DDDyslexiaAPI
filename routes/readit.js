@@ -1,11 +1,12 @@
 const router = require("express").Router()
-const { assessment, viewlistassessments, viewstoryassessmentdata, viewassessmenthistory, deleteassessment } = require("../controllers/readit")
-const {protectplayer, protectadmin} = require("../middleware/middleware")
+const { assessment, viewlistassessments, viewstoryassessmentdata, viewassessmenthistory, deleteassessment, getchildscore } = require("../controllers/readit")
+const {protectplayer, protectadmin, protectguardian} = require("../middleware/middleware")
 const recordingupload = require("../middleware/uploadrecordings")
 
 const uploadassessment = recordingupload.single("story")
 
 router
+    .get("/getchildscore", protectguardian, getchildscore)
     .get("/viewlistassessments", protectplayer, viewlistassessments)
     .get("/viewstoryassessmentdata", protectplayer, viewstoryassessmentdata)
     .get("/viewassessmenthistory", protectadmin, viewassessmenthistory)

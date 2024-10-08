@@ -68,6 +68,10 @@ exports.loginparent = async (req, res) => {
         return res.status(400).json({message: "bad-request", data: "There's a problem logging in your account. Please contact customer support for more details!"})
     })
 
+    if (!parentdata){
+        return res.status(400).json({message: "failed", data: "No User parent found!"})
+    }
+
     if (!(await parentdata.matchPassword(password))){
         return res.status(400).json({message: "failed", data: "Password incorrect! Please input your valid password and try again."})
     }

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const readItSchema = new mongoose.Schema(
+const buildItSchema = new mongoose.Schema(
     {
         owner: {
             type: mongoose.Schema.Types.ObjectId,
@@ -24,5 +24,5 @@ const readItSchema = new mongoose.Schema(
     }
 )
 
-const Readit = mongoose.model("Readit", readItSchema)
-module.exports = Readit
+const Buildit = mongoose.model("Buildit", buildItSchema)
+module.exports = Buildit

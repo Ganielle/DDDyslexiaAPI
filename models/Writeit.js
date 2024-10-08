@@ -7,7 +7,7 @@ const writeItSchema = new mongoose.Schema(
             ref: "Studentusers",
             index: true
         },
-        number: {
+        letter: {
             type: String,
             index: true
         },
